@@ -1,0 +1,24 @@
+%h1
+  User Panel
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th City
+      %th Phone Number
+      %th Actions
+  %tbody
+    - @users.each do |u|
+      %tr
+        %th
+          = u.name
+        %td
+          = u.email
+        %td
+          = u.city
+        %td
+          = u.phone_number
+        %td
+          %button
+            chat now
