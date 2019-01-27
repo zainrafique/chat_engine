@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     collection do
       get  'dashboard'
     end
+    match "delete_user", on: :member, via: [:get, :post]
   end
 
 end

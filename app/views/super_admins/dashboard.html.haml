@@ -1,1 +1,25 @@
-admin file
+%h1
+  Admin Panel
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th City
+      %th Phone Number
+      %th Actions
+  %tbody
+    - @users.each do |u|
+      %tr
+        %th
+          = u.name
+        %td
+          = u.email
+        %td
+          = u.city
+        %td
+          = u.phone_number
+        %td
+          %button
+            chat now
+          = link_to "Delete this user", delete_user_super_admin_path(u), :class => "dropdown-toggle"

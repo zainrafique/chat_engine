@@ -10,6 +10,7 @@
       %th Actions
   %tbody
     - @users.each do |u|
+      - next if current_user.id == u.id
       %tr
         %th
           = u.name
