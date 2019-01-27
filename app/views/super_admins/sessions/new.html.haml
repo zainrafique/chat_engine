@@ -1,0 +1,18 @@
+.container.login-container
+  .row
+    .col-md-12.login-form-1
+      %h3 Super Admin Login
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .form-group
+          = f.email_field :email, class: "form-control", :placeholder => "Email *", autofocus: true, autocomplete: "email"
+        .form-group
+          = f.password_field :password, class: "form-control", :placeholder => "Password *", autocomplete: "current-password"
+          .form-group
+            - if devise_mapping.rememberable?
+              .field
+                = f.check_box :remember_me, class: "form-control"
+                = f.label :remember_me
+        .form-group
+          = f.submit "Log in", class: "btnSubmit"
+        .form-group
+          = render "super_admins/shared/links"
