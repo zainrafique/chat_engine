@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users do
     collection do
       get  'dashboard'
+      get  'inbox'
     end
   end
 
@@ -17,4 +18,11 @@ Rails.application.routes.draw do
     match "delete_user", on: :member, via: [:get, :post]
   end
 
+  resources :conversations, only: [:create] do
+    member do
+      post :close
+    end
+
+    resources :messages, only: [:create]
+  end
 end
